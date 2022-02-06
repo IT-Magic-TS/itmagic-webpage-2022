@@ -1,0 +1,36 @@
+.etsyCard {
+  padding: 7px;
+  margin: 5px;
+  border-radius: 7px;
+  border: 1px solid hsl(184, 62%, 53%);
+  transition: transform 1s;
+}
+
+.etsyCard:hover {
+  transform: rotate(2deg);
+}
+
+.etsyCard h1 {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0 !important;
+}
+
+.etsyCard .price {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.etsyCard .priceOriginal {
+  font-size: 12px;
+  color: green;
+  margin-left: 10px;
+  text-decoration: line-through;
+}
+
+.etsyCard .discount {
+  font-size: 12px;
+  color: green;
+}

@@ -1,16 +1,113 @@
 html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Open Sans", sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.mainSiteContainer {
+  max-width: 1400px;
+  margin-top: 15px;
 }
 
-* {
-  box-sizing: border-box;
+.img-animation {
+  -webkit-animation: spin 23s linear infinite;
+  -moz-animation: spin 23s linear infinite;
+  animation: spin 23s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.h1-banner {
+  font-size: 20px;
+}
+
+footer {
+  padding: 20px !important;
+}
+
+.active {
+  color: rgb(241, 255, 112);
+}
+
+/* Perfect Stirs */
+.main-posts-img-container {
+  display: flex;
+}
+
+.main-posts-img-container .w3-display-container {
+  margin: 5px;
+  border: 3px solid rgb(110, 82, 6);
+  border-radius: 5px;
+}
+
+.main-posts-h1 {
+  font-size: 2em;
+  color: rgb(110, 82, 6);
+}
+
+.emoji-list {
+  font-size: 24px;
+  list-style: none;
+}
+
+.desktop-container {
+  margin-top: 80px;
+}
+
+.desktop-container .apps-imgs {
+  display: flex;
+}
+
+.app-container {
+  border: solid 2px rgb(110, 82, 6);
+  border-radius: 5px;
+  margin: 3px;
+}
+
+.desktop-container .apps-imgs div {
+  margin: 5px;
+}
+
+.arrow-right {
+  height: 24px;
+  width: 24px;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  .main-posts-img-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-posts-h1 {
+    font-size: 1.5em;
+  }
+
+  .emoji-list {
+    font-size: 14px;
+    list-style: none;
+  }
 }

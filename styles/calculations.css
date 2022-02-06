@@ -1,0 +1,51 @@
+.calculations .container {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto 0 auto;
+}
+
+.calculations input {
+  background: rgb(247, 240, 181);
+  font-size: 20px;
+}
+
+.calculations .label {
+  text-align: right;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.calculations .label-result {
+  text-align: right !important;
+  font-weight: bold;
+  font-size: 23px;
+  padding: 7px;
+  margin-top: 0px;
+  line-height: 23px;
+}
+
+.calculations .result {
+  text-align: left !important;
+  font-size: 23px;
+  background-color: aquamarine;
+  padding: 7px;
+  margin-top: 0px;
+  line-height: 23px;
+}
+
+.calculations .w3-card-4 {
+  margin-bottom: 15px;
+}
+
+.calculations .div-result {
+  margin-bottom: -20px;
+}
+
+.calculations .start-points div {
+  font-size: 24px;
+  padding: 5px;
+}
+
+.calculations .odd {
+  background-color: rgb(192, 250, 169);
+}
