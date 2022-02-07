@@ -49,3 +49,9 @@
 .calculations .odd {
   background-color: rgb(192, 250, 169);
 }
+
+/* Only Simple Stair Balustrade */
+.simple-stair-img-container {
+  max-width: 570px;
+  margin: 0 auto;
+}

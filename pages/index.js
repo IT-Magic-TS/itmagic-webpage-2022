@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+// import Image from "next/image";
+// import styles from "../styles/Home.module.css";
 import etsyListData from "../data/etsy-data.json";
 import EtsyCardComponent from "../components/ui/etsy-card";
 import { useEffect, useState } from "react";

@@ -76,6 +76,14 @@ const NavbarComponent = ({ onSetMobileScreenNavigation }) => {
                   Simple Panel
                 </a>
               </Link>
+              <Link href="/simple-stair-balustrade">
+                <a
+                  className="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large w3-hover-white"
+                  title="Simple panel"
+                >
+                  Simple Stair Balustrade
+                </a>
+              </Link>
             </div>
           </div>
           <button className="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right w3-padding-large w3-hover-white">
