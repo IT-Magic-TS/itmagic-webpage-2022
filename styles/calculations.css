@@ -55,3 +55,7 @@
   max-width: 570px;
   margin: 0 auto;
 }
+
+.calculations .btn-container button {
+  margin-left: 20px;
+}

@@ -103,7 +103,7 @@ const SimplePanel = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="w3-padding calculations">
-        <h1 className="w3-center">Simple Panel</h1>
+        <h1 className="w3-center">Calculations Simple Panel</h1>
         <Image
           src="/images/calculations/L4.PNG"
           height={929}

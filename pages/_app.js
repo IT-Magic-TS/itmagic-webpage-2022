@@ -10,6 +10,8 @@ import ScrollToTop from "react-scroll-to-top";
 import { MessengerChat } from "react-messenger-chat-plugin";
 import AlertPrivacy from "../components/alert-privacy";
 
+// npm install react-messenger-chat-plugin
+
 function MyApp({ Component, pageProps }) {
   const [mobileScreenNavigation, setMobileScreeNavigation] = useState(false);
 
