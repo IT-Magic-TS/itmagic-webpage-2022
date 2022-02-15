@@ -95,21 +95,21 @@ const SimplePanel = () => {
   return (
     <>
       <Head>
-        <title>Gallery Balustrade</title>
+        <title>Simple Balustrade Calcultor</title>
         <meta
           name="description"
-          content="Simple gallery balustrade where balusters are glued into finish floor"
+          content="Calculate gap between balusters, start points and baluster length"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="w3-padding calculations">
-        <h1 className="w3-center">Calculations Simple Panel</h1>
+        <h1 className="w3-center">Simple Panel Calculator</h1>
         <Image
           src="/images/calculations/L4.PNG"
           height={929}
           width={1527}
           alt="Gallery simple balustrade"
-          layout="responsive"
+          layout="intrinsic"
           priority="true"
         />
         <div className="container">

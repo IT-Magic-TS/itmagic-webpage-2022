@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
       </PageContainerComponent>
       {!agree && <AlertPrivacy privacyHandler={privacyHandler} />}
       <FooterComponent />
-      {/* <MessengerChat pageId="108660137620792" />; */}
+      <MessengerChat pageId="108660137620792" />;
     </>
   );
 }

@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import cls from "classnames";
 import InputNumComponent from "../components/calculations/input-num";
+import ResultComponent from "../components/calculations/result";
 
 const SimpleStairBalustrade = () => {
   const [mainImg, setMainImg] = useState(true);
@@ -30,6 +32,7 @@ const SimpleStairBalustrade = () => {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("stair-calc-y"));
     const data2 = JSON.parse(localStorage.getItem("stair-calc-yy"));
+    const data3 = JSON.parse(localStorage.getItem("stair-calc-yyy"));
 
     if (data && typeof data !== "undefined") {
       setGoing(data.going);
@@ -45,6 +48,13 @@ const SimpleStairBalustrade = () => {
       setStepN(data2.stepN);
       setAngle(data2.angle);
       setL(data2.L);
+    }
+
+    if (data3 && typeof data3 !== "undefined") {
+      setH(data3.H);
+      setHd(data3.Hd);
+      setX(data3.X);
+      setBarsLength(data3.barsLength);
     }
   }, []);
 
@@ -113,21 +123,48 @@ const SimpleStairBalustrade = () => {
   }, [going, rise, stepN]);
 
   useEffect(() => {
-    _H = +H;
-  }, [angle, H, Hd, X, going, rise, barN, barD]);
+    const _H = +H;
+    const _Hd = +Hd;
+    const _X = +X;
+    const _beta = 90 - angle;
+    const _betaRadian = (_beta * Math.PI) / 180;
+    const _alphaRadian = (+angle * Math.PI) / 180;
+
+    const y = _Hd / Math.sin(_alphaRadian);
+    const _Hbottom = _H - y + _X;
+
+    const as = starts.map(item => +item + barD / 2);
+    const bs = as.map(item => +item * Math.tan(_betaRadian));
+    const _barsLength = bs.map(item => {
+      const bl = item + _Hbottom;
+      return bl.toFixed(0);
+    });
+    if (_H > 0 && _X && _Hd > 0 && barN > 0 && barN < 40 && stepN > 0) {
+      setBarsLength(_barsLength);
+      const data = {
+        H,
+        Hd,
+        X,
+        barsLength
+      };
+      localStorage.setItem("stair-calc-yyy", JSON.stringify(data));
+    } else {
+      setBarsLength([]);
+    }
+  }, [angle, H, Hd, X, going, rise, barN, barD, gap, starts]);
 
   return (
     <>
       <Head>
-        <title>Simple Stair Balustrade</title>
+        <title>Simple Stair Balustrade Calculator</title>
         <meta
           name="description"
-          content="Calculations for simple stair balustrade. Balusters glued to finish floors"
+          content="Calculate gap between balusters, handri length, angle and balusters length"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="w3-padding calculations simple-stair-balustrade">
-        <h1 className="w3-center">Calculations Simple Stair Balustrade</h1>
+        <h1 className="w3-center">Simple Stair Balustrade Calculator</h1>
         <div className="w3-center btn-container">
           <button
             onClick={() => setMainImg(true)}
@@ -157,12 +194,11 @@ const SimpleStairBalustrade = () => {
         {!mainImg && (
           <div className="simple-stair-img-container">
             <Image
-              src="/images/calculations/B5.PNG"
-              height={743}
-              width={1296}
+              src="/images/calculations/A5.PNG"
+              height={748}
+              width={1526}
               alt="Gallery simple balustrade"
               layout="intrinsic"
-              priority="true"
             />
           </div>
         )}
@@ -180,14 +216,7 @@ const SimpleStairBalustrade = () => {
               onSetInput={setBarN}
               title="Bar Number"
             />
-            <div className="w3-row-padding div-result">
-              <div className="w3-half">
-                <p className="label-result">Gap:</p>
-              </div>
-              <div className="w3-half">
-                <p className="result">{gap}</p>
-              </div>
-            </div>
+            <ResultComponent label="Gap:" result={gap} />
           </div>
 
           <div className="w3-card-4 w3-padding">
@@ -197,20 +226,24 @@ const SimpleStairBalustrade = () => {
               onSetInput={setStepN}
               title="Step Number"
             />
-            <div className="w3-row-padding div-result">
-              <div className="w3-half">
-                <p className="label-result">L:</p>
-              </div>
-              <div className="w3-half">
-                <p className="result">{L}</p>
-              </div>
-              <div className="w3-half">
-                <p className="label-result">Angle:</p>
-              </div>
-              <div className="w3-half">
-                <p className="result">{angle}</p>
-              </div>
-            </div>
+            <ResultComponent label="L:" result={L} />
+            <ResultComponent label="Angle:" result={angle} />
+          </div>
+
+          <div className="w3-card-4 w3-padding">
+            <InputNumComponent val={H} onSetInput={setH} title="H" />
+            <InputNumComponent val={Hd} onSetInput={setHd} title="Hd" />
+            <InputNumComponent val={X} onSetInput={setX} title="X" />
+            {barsLength.length > 0 &&
+              barsLength.map((item, index) => (
+                <div
+                  key={index}
+                  className={cls("bars", index % 2 === 0 ? "odd" : "")}
+                >
+                  Bar {index + 1} length = {item} ({stepN}{" "}
+                  {stepN > 1 ? "bars" : "bar"})
+                </div>
+              ))}
           </div>
 
           {gap > 0 && (

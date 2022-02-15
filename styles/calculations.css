@@ -37,10 +37,6 @@
   margin-bottom: 15px;
 }
 
-.calculations .div-result {
-  margin-bottom: -20px;
-}
-
 .calculations .start-points div {
   font-size: 24px;
   padding: 5px;
@@ -48,6 +44,10 @@
 
 .calculations .odd {
   background-color: rgb(192, 250, 169);
+}
+
+.div-result .w3-half {
+  height: 50px !important;
 }
 
 /* Only Simple Stair Balustrade */
@@ -58,4 +58,21 @@
 
 .calculations .btn-container button {
   margin-left: 20px;
+}
+
+.calculations .bars {
+  font-size: 24px;
+  padding: 5px;
+}
+
+/* Only Wall Handrail */
+.wall-handrail-img-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Only Gate Calculator */
+.gate-img-container {
+  max-width: 750px;
+  margin: 0 auto;
 }
