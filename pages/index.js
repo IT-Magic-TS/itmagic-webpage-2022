@@ -52,7 +52,7 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="google-site-verification"
-          content="DWvarJ4iJlGHputsGdMDmHQ-oVwAM2pjPF2PZ9gNubs"
+          content="SpvOQ7LQWVekMOeDJAnQqQkVq7o065WqY28jjuM5PrI"
         />
       </Head>
       <div className="w3-row w3-margin">
